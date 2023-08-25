@@ -30,48 +30,51 @@ function renderCalendar() {
     }
 }
 
+// ... Existing code ...
+
+// Show the custom modal when a day is clicked
 daysContainer.addEventListener("click", (event) => {
     const clickedDay = event.target;
     if (clickedDay.classList.contains("day")) {
         const dayNumber = clickedDay.textContent;
         const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNumber);
+        
+        const eventModal = document.getElementById("eventModal");
+        eventModal.style.display = "block";
 
-        // Prompt the user to add a new event
-        const eventName = prompt("Enter the event name:");
-        if (eventName) {
-            const newEvent = {
-                date: selectedDate.toISOString(),
-                name: eventName,
-            };
+        const saveEventButton = document.getElementById("saveEvent");
+        saveEventButton.addEventListener("click", () => {
+            const eventName = document.getElementById("eventName").value;
+            if (eventName) {
+                const newEvent = {
+                    date: selectedDate.toISOString(),
+                    name: eventName,
+                };
 
-            // Send the new event data to the backend
-            fetch("/api/events", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(newEvent),
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data.message);
-                // Refresh the calendar to show the updated events
-                renderCalendar();
-            })
-            .catch((error) => {
-                console.error("Error adding event:", error);
-            });
-        }
+                fetch("/api/events", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(newEvent),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.message);
+                    renderCalendar();
+                })
+                .catch((error) => {
+                    console.error("Error adding event:", error);
+                });
+
+                eventModal.style.display = "none";
+            }
+        });
+
+        const closeButton = document.querySelector(".close");
+        closeButton.addEventListener("click", () => {
+            eventModal.style.display = "none";
+        });
     }
 });
-prevBtn.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-});
 
-nextBtn.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-});
-
-renderCalendar();

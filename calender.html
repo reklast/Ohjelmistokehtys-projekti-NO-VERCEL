@@ -17,7 +17,22 @@
         </div>
     </div>
     <!-- Inside your loop for rendering days -->
-
+    <div class="day">
+        <span class="day-number">1</span>
+        <div class="events-container">
+            <!-- Events for this day will be displayed here -->
+        </div>
+    </div>
+    
+    <!-- The custom modal for entering event name -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName">
+            <button id="saveEvent">Save</button>
+        </div>
+    </div>
     <script src="calender.js"></script>
 </body>
 </html>
