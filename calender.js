@@ -30,6 +30,40 @@ function renderCalendar() {
     }
 }
 
+daysContainer.addEventListener("click", (event) => {
+    const clickedDay = event.target;
+    if (clickedDay.classList.contains("day")) {
+        const dayNumber = clickedDay.textContent;
+        const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dayNumber);
+
+        // Prompt the user to add a new event
+        const eventName = prompt("Enter the event name:");
+        if (eventName) {
+            const newEvent = {
+                date: selectedDate.toISOString(),
+                name: eventName,
+            };
+
+            // Send the new event data to the backend
+            fetch("/api/events", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newEvent),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data.message);
+                // Refresh the calendar to show the updated events
+                renderCalendar();
+            })
+            .catch((error) => {
+                console.error("Error adding event:", error);
+            });
+        }
+    }
+});
 prevBtn.addEventListener("click", () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
     renderCalendar();
