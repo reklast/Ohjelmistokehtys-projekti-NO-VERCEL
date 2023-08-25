@@ -9,16 +9,16 @@ function renderCalendar() {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
 
-    // Set the displayed month and year
+    // Vuosi ja kuukausi
     currentMonthElement.textContent = new Intl.DateTimeFormat("en-US", {
         year: "numeric",
         month: "long",
     }).format(currentDate);
 
-    // Clear previous days
+    // poistaa edellisen kuukauden päivät
     daysContainer.innerHTML = "";
 
-    // Create date objects for each day in the month
+    // lisää päivät
     const firstDay = new Date(currentYear, currentMonth, 1);
     const lastDay = new Date(currentYear, currentMonth + 1, 0);
 
