@@ -30,7 +30,17 @@ function renderCalendar() {
     }
 }
 
-// ... Existing code ...
+prevBtn.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+});
+
+nextBtn.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+});
+
+renderCalendar();
 
 // Show the custom modal when a day is clicked
 daysContainer.addEventListener("click", (event) => {
