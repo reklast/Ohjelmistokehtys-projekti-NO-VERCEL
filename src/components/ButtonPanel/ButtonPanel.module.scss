@@ -1,0 +1,28 @@
+@import '@/styles/global-imports';
+
+.buttonWrap {
+    height: 10%;
+    justify-content: center;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+    border-top: 1px solid black;
+    border-radius: 100% 100% 0 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    @include media('<=screen-phone') {
+        display: flex;
+      }
+}
+
+.buttonWrap button {
+    margin-right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    height: 100%;
+}

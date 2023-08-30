@@ -1,0 +1,53 @@
+$iconSize: 40px;
+$userMenuGap: 8px;
+
+.userMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: $userMenuGap;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.userName {
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 700;
+  color: white// TODO: REPLACE-FROM-NEW-PALETTE
+}
+
+.position {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);// TODO: REPLACE-FROM-NEW-PALETTE
+}
+
+.userContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: calc(100% - $userMenuGap - $iconSize);
+  height: 100%;
+}
+
+.userIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $iconSize;
+  height: $iconSize;
+  background-color: rgb(34, 54, 119);// TODO: REPLACE-FROM-NEW-PALETTE
+  border-radius: 50%;
+}
