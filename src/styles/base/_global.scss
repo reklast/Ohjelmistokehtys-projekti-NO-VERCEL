@@ -20,6 +20,12 @@ body {
 
 }
 
+footer {
+  @include media('<=screen-phone') {
+    height: 10%;
+  }
+}
+
 #root {
   height: 100%;
 }
@@ -28,6 +34,10 @@ img {
   vertical-align: middle;
   max-width: 100%;
   height: auto;
+}
+
+main {
+  height: 100%;
 }
 
 * { // firefox case

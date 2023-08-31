@@ -1,10 +1,9 @@
 import { ConfigProvider } from "antd";
-import theme from "@/theme/*";
 
 import { LoginForm } from "@/components/LoginForm/LoginForm";
 
 import styles from './loginPage.module.scss'
-
+import theme from "@/theme/*";
 
 
 export default async function Login() {

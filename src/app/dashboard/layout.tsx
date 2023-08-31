@@ -29,9 +29,9 @@ export default function RootLayout({
             <Header />
             <main className='container'>{children}</main>
           </Providers>
-          
+          <footer>
             <ButtonPanel />
-          
+          </footer>         
         </StyledComponentsRegistry>
         </body>
     </html>

@@ -2,12 +2,10 @@
 
 import { Button } from "antd"
 import { signIn } from "next-auth/react"
-import { useSearchParams } from "next/navigation"
 import styles from "./GoogleButton.module.scss"
 
 const GoogleButton = () => {
 
-    const searchParams = useSearchParams();
     const callbackUrl = "/dashboard";
 
     return (

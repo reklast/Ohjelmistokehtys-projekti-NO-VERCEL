@@ -4,7 +4,6 @@ import Credentials from 'next-auth/providers/credentials';
 
 export const authConfig: AuthOptions = {
     providers: [
-      
         Credentials({
             credentials: {
                 username: {label: 'username', type: 'username', required: true},
@@ -13,7 +12,7 @@ export const authConfig: AuthOptions = {
             async authorize(credentials) {
                 if(!credentials?.username || !credentials.password) return null;      
                 
-                const currentUser = { username: 'admin', password: 'admin'};
+                const currentUser = { name: 'admin', password: 'admin', image: 'https://i.pinimg.com/1200x/75/85/04/75850404ff3478f2dd4c0542640b6a94.jpg'};
                 if (currentUser && currentUser.password === credentials.password) {
                     const {password, ...userWithoutPass} = currentUser;
 
@@ -29,5 +28,6 @@ export const authConfig: AuthOptions = {
     ],
     pages: {
         signIn: '/api/auth/login'
-    }
+    },
+    session: {strategy: 'jwt'}
 }

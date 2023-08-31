@@ -1,0 +1,13 @@
+@import '../../styles/global-imports';
+
+div .logOutButton {
+    background-color: #9747ff;
+}
+
+div .logOutButton:hover {
+    background-color: #b370ff;
+}
+
+div .logOutButton span{
+    color: #fff;
+}

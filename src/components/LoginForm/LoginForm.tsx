@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Form, Input, Space } from "antd";
+import { Button, Form, Input } from "antd";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import type { FormEventHandler, ReactElement } from "react";

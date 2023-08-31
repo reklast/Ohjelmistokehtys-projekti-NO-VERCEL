@@ -8,22 +8,21 @@ import Link from 'next/link';
 
 
 function UserMenu(): ReactElement {
-  // TODO: finalize
+
 
   const onLogOut = (): void => {
     signOut({callbackUrl: "/"})
-  //   NavigationService.navigateToLogOutPage();
   };
 
   const session  = useSession();
 
   const items: MenuProps['items'] = [
         {
-          key: '2',
+          key: '1',
           label: <div>{session?.data && <Link href="/dashboard/user">Profile</Link>}</div>,
         },
         {
-          key: '1',
+          key: '2',
           label: <div>{session?.data ? (
             <Link href="#" onClick={ () => signOut({
               callbackUrl: "/"})}>
@@ -38,7 +37,6 @@ function UserMenu(): ReactElement {
       ]
 
   return (
-    // TODO: rework to custom dropdown component
     <Dropdown
       menu = {{items}}
       placement="bottomRight"
