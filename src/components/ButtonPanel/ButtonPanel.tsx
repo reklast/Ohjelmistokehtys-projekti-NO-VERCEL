@@ -3,11 +3,12 @@
 import React, { ReactElement } from 'react';
 import { useRouter } from "next/navigation";
 import { usePathname } from 'next/navigation';
-import { Button } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 
 import { HomeOutlined, NotificationOutlined, PlusCircleOutlined, ScheduleOutlined, UserOutlined } from '@ant-design/icons';
 
 import styles from './ButtonPanel.module.scss';
+import theme from '@/theme/*';
 
 
 function ButtonPanel(): ReactElement {
@@ -15,6 +16,7 @@ function ButtonPanel(): ReactElement {
     const path = usePathname();
 
     return (
+            <ConfigProvider theme={theme}>
             <nav className={styles.buttonWrap}>
                 <Button htmlType='button' className='button' onClick={() => {
                       if(path !== '/dashboard') router.push('/dashboard')
@@ -43,6 +45,7 @@ function ButtonPanel(): ReactElement {
                     <UserOutlined />
                 </Button>
             </nav>
+            </ConfigProvider>
     );
 };
 
