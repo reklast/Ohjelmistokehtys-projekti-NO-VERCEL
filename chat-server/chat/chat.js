@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const findInfoIndex = lowerUserInput.indexOf("find information about");
           if (findInfoIndex !== -1) {
               const userQuery = lowerUserInput.substring(findInfoIndex + "find information about".length).trim();
-              return `I would suggest using Wikipedia to find information about ${UserQuery}.`;
+              return `I would suggest using Wikipedia to find information about ${userQuery}.`;
           } else {
               return "I'm not sure how to interpret your request. Please specify what you want to know.";
           }
