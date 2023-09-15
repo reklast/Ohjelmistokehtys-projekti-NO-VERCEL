@@ -1,0 +1,31 @@
+@import '../../styles/global-imports';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: nowrap;
+  background-color: rgba(6, 12, 32, 0.993);// TODO: REPLACE-FROM-NEW-PALETTE
+  padding: 0 40px;
+  min-height: 76px;
+  gap: 40px;
+
+  @include media('<=screen-phone') {
+    display: none;
+  }
+}
+
+.navHolder {
+  flex: 1 0 auto;
+  height: 100%;
+
+   @include media('<=screen-desktop') {
+     display: none;
+   }
+}
+
+.userMenuHolder {
+  flex: 0 0 auto;
+  width: 200px;
+  
+}

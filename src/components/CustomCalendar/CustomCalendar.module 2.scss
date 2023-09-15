@@ -1,0 +1,8 @@
+@import "@/styles/global-imports";
+
+.calendar {
+    @include media('>=screen-desktop') {
+        max-width: 80%;
+      }
+    
+}

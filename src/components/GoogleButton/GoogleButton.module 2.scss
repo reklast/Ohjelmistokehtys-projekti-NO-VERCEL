@@ -1,0 +1,12 @@
+@import '@/styles/global-imports';
+
+div .button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.button img {
+    padding-right: 0.5rem;
+    width: 1.6rem;
+}

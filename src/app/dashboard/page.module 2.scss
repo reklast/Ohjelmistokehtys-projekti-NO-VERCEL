@@ -1,0 +1,33 @@
+@import '@/styles/global-imports';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  min-height: 100vh;
+}
+
+.newsHolder {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.newsHeader {
+  color: #9747ff;
+}
+
+.calendarHeader {
+  color: #9747ff;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
