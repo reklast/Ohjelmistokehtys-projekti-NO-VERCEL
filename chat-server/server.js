@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const port = 3001;
-const messages = [];
+const userMessages = {}; // Store messages for each user
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/') {
@@ -24,15 +24,29 @@ const server = http.createServer((req, res) => {
       body += chunk.toString();
     });
     req.on('end', () => {
-      const message = JSON.parse(body).message;
-      messages.push(message);
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('Message sent successfully');
+      const { user, message } = JSON.parse(body);
+      if (user && message) {
+        if (!userMessages[user]) {
+          userMessages[user] = [];
+        }
+        userMessages[user].push(message);
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Message sent successfully');
+      } else {
+        res.writeHead(400, { 'Content-Type': 'text/plain' });
+        res.end('Invalid data');
+      }
     });
-  } else if (req.method === 'GET' && req.url === '/messages') {
-    // Retrieve messages
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(messages));
+  } else if (req.method === 'GET' && req.url.startsWith('/messages')) {
+    // Retrieve messages for a specific user
+    const user = req.url.split('/')[2];
+    if (userMessages[user]) {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(userMessages[user]));
+    } else {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end('[]');
+    }
   } else {
     // Handle 404 Not Found
     res.writeHead(404, { 'Content-Type': 'text/plain' });
