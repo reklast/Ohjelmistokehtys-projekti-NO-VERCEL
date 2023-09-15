@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const avatarElement = document.createElement("div");
           avatarElement.classList.add("message-avatar");
           const avatarImage = document.createElement("img");
-          avatarImage.src = message.isUser ? "pictures/user-avatar.png" : "pictures/bot.png"; // Use the appropriate avatar image
+          avatarImage.src = message.isUser ? "pictures/user-avatar.png" : "pictures/bot-avatar.png"; // Use the appropriate avatar image
           avatarImage.alt = message.isUser ? "User" : "Bot";
 
           // Adjust the width and height of the avatarImage
