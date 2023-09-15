@@ -1,93 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Chat</title>
-    <style>
-        /* Add CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #chat-container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #chat-messages {
-            border: 1px solid #ccc;
-            min-height: 200px;
-            padding: 10px;
-            overflow-y: auto;
-        }
-        #message-input {
-            width: 100%;
-            margin-top: 10px;
-            padding: 5px;
-        }
-        #send-button {
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="chat-container">
-        <div id="chat-messages"></div>
-        <input type="text" id="message-input" placeholder="Type a message...">
-        <button id="send-button">Send</button>
+    <div class="chat-contain er">
+        <div class="chat-messages" id="chat-messages">
+            
+        </div>
+        <div class="message-input-container">
+            <div id="emoji-picker-container" style="display: none;"></div>
+            <div class="message-input-row">
+                <textarea id="message-input" placeholder="Type your message..."></textarea>
+                <div class="input-icons">
+                    <button id="emoji-button">😀</button>
+                    <button id="thumbs-up-button">👍</button>
+                    <label for="file-input" id="file-label">📁</label>
+                    <input type="file" id="file-input" style="display: none;">
+                </div>
+            </div>
+            <button id="send-button">Send</button>
+        </div>
     </div>
 
-    <script>
-        const chatMessages = document.getElementById('chat-messages');
-        const messageInput = document.getElementById('message-input');
-        const sendButton = document.getElementById('send-button');
-
-        sendButton.addEventListener('click', () => {
-            const message = messageInput.value.trim();
-            if (message) {
-                sendMessage(message);
-                messageInput.value = '';
-            }
-        });
-
-        function appendMessage(message) {
-            const messageElement = document.createElement('div');
-            messageElement.textContent = message;
-            chatMessages.appendChild(messageElement);
-        }
-
-        function getMessages() {
-            fetch('/messages')
-                .then(response => response.json())
-                .then(data => {
-                    chatMessages.innerHTML = '';
-                    data.forEach(message => {
-                        appendMessage(message);
-                    });
-                });
-        }
-
-        function sendMessage(message) {
-            fetch('/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message }),
-            }).then(() => {
-                getMessages();
-            });
-        }
-
-        // Poll for messages every few seconds (not real-time)
-        setInterval(getMessages, 2000);
-
-        // Initial load of messages
-        getMessages();
-    </script>
+    <script src="chat.js"></script>
 </body>
 </html>
