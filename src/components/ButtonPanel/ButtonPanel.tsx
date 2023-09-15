@@ -25,7 +25,7 @@ function ButtonPanel(): ReactElement {
                     <HomeOutlined />
                 </Button>
                 <Button htmlType='button' className='button' onClick={() =>{ 
-                    if(path !== '/#') router.push('/#')
+                    if(path !== '/dashboard/calendar') router.push('/dashboard/calendar')
                     }}>
                     <ScheduleOutlined />
                 </Button>
