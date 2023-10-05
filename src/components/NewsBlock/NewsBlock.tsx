@@ -1,5 +1,6 @@
 import { Collapse, CollapsePanelProps } from 'antd';
 
+
 import styles from './NewsBlock.module.scss';
 
 // TODO: connect DB and remove test object array
@@ -26,21 +27,21 @@ const testNews = [
     }
  ];
 
-const NewsBlock = () => {
+ const NewsBlock = () => {
 
-    const res:CollapsePanelProps[] = testNews.map((headline, index) => (
-        {
-          key: `${index}`,
-          label: `${headline.date} - ${headline.title}`,
-          header: '',
-          children: <div className={styles.newsText}>{headline.content}</div>,
-          className: styles.panel
-        }
-        ))
+  const res:CollapsePanelProps[] = testNews.map((headline, index) => (
+      {
+        key: `${index}`,
+        label: `${headline.date} - ${headline.title}`,
+        header: '',
+        children: <div className={styles.newsText}>{headline.content}</div>,
+        className: styles.panel
+      }
+      ))
 
-    return (
-        <Collapse accordion={true} items={res} size='small' className={styles.collapse}/>
-    )
+  return (
+      <Collapse accordion={true} items={res} size='small' className={styles.collapse}/>
+  )
 }
 
 export {NewsBlock};
