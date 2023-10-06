@@ -6,3 +6,36 @@
       }
     
 }
+
+.calendarWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.announcementsHeader {
+  color: #9747ff;
+}
+
+.collapse {
+  margin-bottom: 7rem;
+}
+
+.eventsHolder{
+  padding-top: 1rem;
+}
+
+.associates {
+  padding-top: 1rem;
+}
+
+.associatesHeader {
+  font-size: medium;
+}
+
+.avatarNoPic {
+  background-color: #8340da;
+}
+
+.floatButton {
+  margin-bottom: 4rem;
+}
