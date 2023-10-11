@@ -1,5 +1,5 @@
 
-import connectMongo from '@/utils/connectMongo';
+import connectMongo from '../../../utils/connectMongo';
 
 import DbCalendar from '../../../Models/DbModelsCalender';
 console.log('Start CONNECTING TO MONGO');
