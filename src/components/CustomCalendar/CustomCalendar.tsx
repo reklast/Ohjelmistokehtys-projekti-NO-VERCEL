@@ -118,8 +118,8 @@ function CustomCalendar(): ReactElement {
                   Tapahtuman osallistujia:
                 </h1>
                 <Avatar.Group size="large" className={styles.associates}>
-                  {event.eventAssociates?.map((user) => (
-                    <Tooltip title={`${user.name} ${user.surname}`}>
+                  {event.eventAssociates?.map((user, index) => (
+                    <Tooltip key={index} title={`${user.name} ${user.surname}`}>
                       {user.profilePic.length > 0 ? (
                         <Avatar src={user.profilePic} />
                       ) : (
@@ -163,7 +163,11 @@ function CustomCalendar(): ReactElement {
             <Empty />
           )}
         </div>
-        <FloatButton onClick={showModal} icon={<ScheduleOutlined />} className={styles.floatButton}/>
+        <FloatButton
+          onClick={showModal}
+          icon={<ScheduleOutlined />}
+          className={styles.floatButton}
+        />
       </div>
       <Modal
         open={open}

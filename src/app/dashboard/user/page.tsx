@@ -1,32 +1,31 @@
 import { authConfig } from "@/configs/auth";
-import { getServerSession } from "next-auth"
-import { Avatar, ConfigProvider } from 'antd';
-import { UserOutlined } from "@ant-design/icons";
+import { getServerSession } from "next-auth";
 
 import { LogOutButton } from "@/components/LogOutButton/LogOutButton";
+import UserStatus from "@/components/UserStatus/UserStatus";
+import AvatarComponent from "@/components/AvatarComponent/AvatarComponent";
+import ThemeSwitch from "@/components/ThemeSwitch/ThemeSwitch";
 
-
-import styles from './page.module.scss';
-import theme from "@/theme/*";
-
+import styles from "./page.module.scss";
 
 export default async function User() {
-    const session = await getServerSession(authConfig);
-    
-    return (
-    <ConfigProvider theme={theme}>
+  const session = await getServerSession(authConfig);
+
+  return (
     <div className={styles.mainWrap}>
-        <h1 className={styles.userName}>{session?.user?.name}</h1>
-        <div className={styles.avatarHolder}>
-            {!session?.user?.image 
-         ? <Avatar className={styles.userImg} size={150} gap={3} icon={<UserOutlined />}/>
-         : <Avatar className={styles.userImg} size={150} gap={3} src={session?.user?.image}/>}
-        </div>
-        <div className={styles.buttonHolder}>
-         <LogOutButton />
-        </div>
+      <h1 className={styles.userName}>{session?.user?.name}</h1>
+      <div className={styles.avatarHolder}>
+        <AvatarComponent />
+      </div>
+      <div className={styles.statusHolder}>
+        <UserStatus />
+      </div>
+      <div className={styles.themeSwitchHolder}>
+        <ThemeSwitch />
+      </div>
+      <div className={styles.buttonHolder}>
+        <LogOutButton />
+      </div>
     </div>
-    
-    </ConfigProvider>
-    )
+  );
 }
