@@ -10,10 +10,7 @@ import { CustomCalendar } from "@/components/CustomCalendar/CustomCalendar";
 
 
 import styles from "./page.module.scss";
-import theme from "@/theme/*";
-import { useState } from "react"; 
-
-
+import theme from "@/theme/*"; 
 export default function Home(): ReactElement {
   return (
     <ConfigProvider theme={theme}>
