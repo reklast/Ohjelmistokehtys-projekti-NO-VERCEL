@@ -2,8 +2,6 @@ import { authConfig } from "@/configs/auth";
 import { getServerSession } from "next-auth"
 import { Avatar, ConfigProvider } from 'antd';
 import { UserOutlined } from "@ant-design/icons";
-import  db  from "@/app/api/db/db";
-
 import { LogOutButton } from "@/components/LogOutButton/LogOutButton";
 
 

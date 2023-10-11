@@ -9,3 +9,5 @@ const heippalppuScema = new Schema({
 const Heippa = models.Heippa || model('Heippa', heippalppuScema);
 
 export default Heippa;
+
+
