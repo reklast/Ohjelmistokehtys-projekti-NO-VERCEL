@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const lowerUserInput = userInput.toLowerCase();
 
 
-      if (lowerUserInput.includes("Hei!") || lowerUserInput.includes("Hei!")) {
-          return "Hei! Kuinka voin auttaa?";
-      } else if (lowerUserInput.includes("auttaa") || lowerUserInput.includes("apua")) {
+      if (lowerUserInput.includes("hello") || lowerUserInput.includes("hi")) {
+          return "Hello! How can I assist you today?";
+      } else if (lowerUserInput.includes("help") || lowerUserInput.includes("helpi")) {
           return "How would you like me to help you?";
       } else if (lowerUserInput.includes("find information about")) {
 
@@ -131,4 +131,3 @@ document.addEventListener("DOMContentLoaded", function () {
       emojiPickerContainer.style.display = emojiPickerContainer.style.display === 'none' ? 'block' : 'none';
   });
 });
-
