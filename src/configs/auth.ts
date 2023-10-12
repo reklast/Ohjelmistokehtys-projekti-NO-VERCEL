@@ -1,22 +1,23 @@
 import type { AuthOptions, User } from "next-auth";
 import GoogleProvider from 'next-auth/providers/google';
 import Credentials from 'next-auth/providers/credentials';
+import testUsers from '@/testUsers/testUsers.json';
 
 export const authConfig: AuthOptions = {
+    
     providers: [
         Credentials({
             credentials: {
                 username: {label: 'username', type: 'username', required: true},
                 password: {label: 'password', type: 'password', required: true},
             },
-            async authorize(credentials) {
-                if(!credentials?.username || !credentials.password) return null;      
-                
-                const currentUser = { name: 'admin', password: 'admin', image: 'https://i.pinimg.com/1200x/75/85/04/75850404ff3478f2dd4c0542640b6a94.jpg'};
-                if (currentUser && currentUser.password === credentials.password) {
+            async authorize(credentials) { 
+                if(!credentials?.username || !credentials.password) return null;
+                const currentUser = testUsers.filter((user) => user.password === credentials.password && user.name === credentials.username)[0];
+                if (currentUser) {
                     const {password, ...userWithoutPass} = currentUser;
 
-                    return userWithoutPass as unknown as User;
+                    return userWithoutPass  as unknown as User ;
                 }
                 return null;
             },
@@ -29,5 +30,16 @@ export const authConfig: AuthOptions = {
     pages: {
         signIn: '/api/auth/login'
     },
-    session: {strategy: 'jwt'}
+    session: {strategy: 'jwt'},
+    callbacks: {
+        async jwt({user, token}) {
+            user && (token.activityStatus = user.activityStatus)
+            return token
+        },
+
+        async session({ token, session}) {
+            session.user.activityStatus = token.activityStatus
+            return session
+        }
+    }
 }

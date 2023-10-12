@@ -1,0 +1,37 @@
+[
+  {
+    "name": "admin",
+    "surname": "admin",
+    "password": "admin",
+    "image": "https://i.pinimg.com/1200x/75/85/04/75850404ff3478f2dd4c0542640b6a94.jpg",
+    "activityStatus": "Available"
+  },
+  {
+    "name": "John",
+    "surname": "Doe",
+    "password": "1234",
+    "image": "https://preview.redd.it/psbattle-this-dog-staring-at-the-camera-v0-4q2c1zaf92h81.jpg?width=640&crop=smart&auto=webp&s=9478bc7586da83e13da82622161bde4733d39062",
+    "activityStatus": "Available"
+  },
+  {
+    "name": "Jane",
+    "surname": "Doe",
+    "password": "1234",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRD_vkOVUL12qEHcdyq6oO1hIpIeSJuhVIIyGSMFR3mcmvPP5rWOU8u-7R8hBNYpDOYv4&usqp=CAU",
+    "activityStatus": "Available"
+  },
+  {
+    "name": "Kitty",
+    "surname": "Cat",
+    "password": "1234",
+    "image": "https://pbs.twimg.com/media/FZ_5BiFX0AAox13.jpg",
+    "activityStatus": "Available"
+  },
+  {
+    "name": "Bob",
+    "surname": "Bob",
+    "password": "1234",
+    "image": "https://preview.redd.it/jotchua-evil-twin-brother-v0-vnlgg9hj709a1.jpg?width=640&crop=smart&auto=webp&s=3a6a21ce81274a3c5fe9ea1e7def0e8bf8906746",
+    "activityStatus": "Available"
+  }
+]

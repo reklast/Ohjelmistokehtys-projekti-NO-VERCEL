@@ -1,4 +1,4 @@
-@import '../global-imports';
+@import "../global-imports";
 
 html {
   box-sizing: border-box;
@@ -17,11 +17,10 @@ body {
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 footer {
-  @include media('<=screen-phone') {
+  @include media("<=screen-phone") {
     height: 10%;
   }
 }
@@ -40,6 +39,26 @@ main {
   height: 100%;
 }
 
-* { // firefox case
+* {
+  // firefox case
   scrollbar-width: thin;
+}
+
+//dark theme section
+
+:root {
+  &.light {
+    background-color: white;
+    color: black;
+    footer {
+      background-color: white;
+    }
+  }
+  &.dark {
+    background-color: $dark-purple1;
+    color: white;
+    footer {
+      background-color: $dark-purple1;
+    }
+  }
 }

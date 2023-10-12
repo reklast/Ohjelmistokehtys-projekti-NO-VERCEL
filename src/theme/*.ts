@@ -1,6 +1,6 @@
-import type { ThemeConfig } from 'antd';
+import { theme, type ThemeConfig } from 'antd';
 
-const theme: ThemeConfig = {
+const lightTheme: ThemeConfig = {
   token: {
     fontSize: 16,
     colorPrimary: '#9747ff',
@@ -8,4 +8,14 @@ const theme: ThemeConfig = {
   },
 };
 
-export default theme;
+const darkTheme: ThemeConfig = {
+  token: {
+    fontSize: 16,
+    colorBgBase: '#24232d',
+    colorTextBase: '#FFFF',
+    colorPrimary: '#9747ff',
+},
+algorithm: theme.darkAlgorithm
+}
+
+export {lightTheme, darkTheme};
