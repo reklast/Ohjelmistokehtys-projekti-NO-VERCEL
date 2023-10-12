@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profiili</title>
+  <link rel="stylesheet" type="text/css" href="profile.css">
+</head>
+<body>
+  <div class="profile-container">
+    <label for="change-image-input" id="profile-image-label">
+      <img class="profile-image" src="profile_pics/Screenshot 2023-10-02 at 13.49.24.png" alt="Profiilikuva">
+    </label>
+    <input type="file" id="change-image-input" accept="image/*" style="display: none;">
+    <div class="profile-info">
+      <div class="profile-name" contentEditable="true">Jack Avocado</div>
+      <div class="profile-status">
+        <p>Status:</p>
+        <select id="status-select">
+          <option value="Available">Available</option>
+          <option value="Busy">Busy</option>
+          <option value="Away">Away</option>
+          <option value="Offline">Offline</option>
+        </select>
+      </div>
+    </div>
+    <button id="toggle-mode">Vaihda tila</button>
+  </div>
+  <script src="profile.js"></script>
+</body>
+</html>
