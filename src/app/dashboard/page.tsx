@@ -1,13 +1,8 @@
 import { ReactElement } from "react";
 import { ConfigProvider } from "antd";
 
-
-
-
 import { NewsBlock } from "@/components/NewsBlock/NewsBlock";
 import { CustomCalendar } from "@/components/CustomCalendar/CustomCalendar";
-
-
 
 import styles from "./page.module.scss";
 import theme from "@/theme/*"; 

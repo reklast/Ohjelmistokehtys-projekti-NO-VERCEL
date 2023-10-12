@@ -6,6 +6,6 @@ const calendarScema = new Schema({
     date: Date,
   });
   
-  const DbCalendar = models.Calendar || model('DbCalendar', heippalppuScema);
+  const DbCalendar = models.Calendar || model('DbCalendar', calendarScema);
   
   export default DbCalendar;
