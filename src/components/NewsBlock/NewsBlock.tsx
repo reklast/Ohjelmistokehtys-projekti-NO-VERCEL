@@ -1,4 +1,4 @@
-import { Collapse, CollapsePanelProps } from "antd";
+import { Collapse } from "antd";
 
 import styles from "./NewsBlock.module.scss";
 import connectMongo from "@/utils/connectMongo";
@@ -10,35 +10,6 @@ import {
   ReactPortal,
   PromiseLikeOfReactNode,
 } from "react";
-import { InferGetServerSidePropsType } from "next";
-
-// TODO: connect DB and remove test object array
-const testNews = [
-  {
-    title: "uutisen otsikko1",
-    date: "12.08",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe fugit modi, officiis reprehenderit a veniam suscipit debitis id facilis tempore quos quod deserunt quia ducimus quae nobis quas cum ipsam.",
-  },
-  {
-    title: "uutisen otsikko2",
-    date: "30.07",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe fugit modi, officiis reprehenderit a veniam suscipit debitis id facilis tempore quos quod deserunt quia ducimus quae nobis quas cum ipsam.",
-  },
-  {
-    title: "uutisen otsikko3",
-    date: "02.04",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe fugit modi, officiis reprehenderit a veniam suscipit debitis id facilis tempore quos quod deserunt quia ducimus quae nobis quas cum ipsam.",
-  },
-  {
-    title: "uutisen otsikko4",
-    date: "29.02",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe fugit modi, officiis reprehenderit a veniam suscipit debitis id facilis tempore quos quod deserunt quia ducimus quae nobis quas cum ipsam.",
-  },
-];
 
 export const getNewsFromDB = async () => {
   console.log("CONNECTING TO MONGO");
@@ -57,7 +28,7 @@ export const getNewsFromDB = async () => {
 const NewsBlock = async () => {
   const getNews = await getNewsFromDB();
 
-  const res = getNews.data.slice(getNews.data.length - 5).map(
+  const res = getNews.data.map(
     (
       headline: {
         date: any;

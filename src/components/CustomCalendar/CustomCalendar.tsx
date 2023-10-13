@@ -12,8 +12,13 @@ import {
 } from "antd";
 
 import styles from "./CustomCalendar.module.scss";
+
 import dayjs from "dayjs";
-import { ScheduleOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  FrownOutlined,
+  ScheduleOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 
 // function to disable all dates before today
 const onDisabledDate = (date: any): boolean => {
@@ -175,7 +180,7 @@ function CustomCalendar(): ReactElement {
         onOk={handleSubmit}
         onCancel={handleCancel}
       >
-        test content
+        Work in progress <FrownOutlined />
       </Modal>
     </>
   );
